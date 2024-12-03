@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="sidebar-fragment(path)">
+    <!-- Brand Logo -->
+    <a class="brand-link" th:href="@{/admin/index}">
+        <img alt="ssm-cluster Logo" class="brand-image img-circle elevation-3" style="opacity: .8"
+             th:src="@{/admin/dist/img/logo.png}">
+        <span class="brand-text font-weight-light">my blog</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img alt="User Image" class="img-circle elevation-2" th:src="@{/admin/dist/img/avatar5.png}">
+            </div>
+            <div class="info">
+                <a class="d-block" href="#" th:text="${session.loginUser}"></a>
+            </div>
+        </div>
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-accordion="false" data-widget="treeview"
+                role="menu">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-header">Dashboard</li>
+                <li class="nav-item">
+                    <a th:class="${path}=='index'?'nav-link active':'nav-link'" th:href="@{/admin/index}">
+                        <i class="nav-icon fa fa-dashboard"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${path}=='edit'?'nav-link active':'nav-link'" th:href="@{/admin/blogs/edit}">
+                        <i class="nav-icon fa fa fa-pencil-square-o"></i>
+                        <p>
+                            发布博客
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">管理模块</li>
+                <li class="nav-item">
+                    <a th:class="${path}=='blogs'?'nav-link active':'nav-link'" th:href="@{/admin/blogs}">
+                        <i aria-hidden="true" class="fa fa-list-alt nav-icon"></i>
+                        <p>
+                            博客管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${path}=='comments'?'nav-link active':'nav-link'" th:href="@{/admin/comments}">
+                        <i aria-hidden="true" class="fa fa-comments nav-icon"></i>
+                        <p>
+                            评论管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${path}=='categories'?'nav-link active':'nav-link'" th:href="@{/admin/categories}">
+                        <i aria-hidden="true" class="fa fa-bookmark nav-icon"></i>
+                        <p>
+                            分类管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${path}=='tags'?'nav-link active':'nav-link'" th:href="@{/admin/tags}">
+                        <i aria-hidden="true" class="fa fa-tags nav-icon"></i>
+                        <p>
+                            标签管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${path}=='links'?'nav-link active':'nav-link'" th:href="@{/admin/links}">
+                        <i aria-hidden="true" class="fa fa-heart nav-icon"></i>
+                        <p>
+                            友情链接
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">系统管理</li>
+                <li class="nav-item">
+                    <a th:class="${path}=='configurations'?'nav-link active':'nav-link'"
+                       th:href="@{/admin/configurations}">
+                        <i class="fa fa-wrench nav-icon"></i>
+                        <p>系统配置</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:class="${path}=='profile'?'nav-link active':'nav-link'"
+                       th:href="@{/admin/profile}">
+                        <i class="fa fa-user-secret nav-icon"></i>
+                        <p>修改密码</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/logout}">
+                        <i class="fa fa-sign-out nav-icon"></i>
+                        <p>安全退出</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+</html>
