@@ -38,7 +38,6 @@
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">your personal blog , enjoy it</p>
             <form method="post" th:action="@{/admin/login}">
                 <div class="form-group" th:if="${not #strings.isEmpty(session.errorMsg)}">
                     <div class="alert alert-danger" th:text="${session.errorMsg}"></div>

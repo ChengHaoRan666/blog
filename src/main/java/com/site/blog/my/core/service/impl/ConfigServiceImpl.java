@@ -21,8 +21,8 @@ public class ConfigServiceImpl implements ConfigService {
     public static final String yourAvatar = "/admin/dist/img/13.png";
     public static final String yourEmail = "2640708884@qq.com";
     public static final String yourName = "橙子";
-    public static final String footerAbout = "your personal blog. have fun.";
-    public static final String footerICP = "浙ICP备 xxxxxx-x号";
+    public static final String footerAbout = "仅作为分享使用";
+    public static final String footerICP = "皖ICP备2025075088号-1";
     public static final String footerCopyRight = "@2024 橙子";
     public static final String footerPoweredBy = "personal blog";
     public static final String footerPoweredByURL = "##";

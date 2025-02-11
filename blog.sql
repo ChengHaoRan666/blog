@@ -1,3 +1,13 @@
+drop table
+my_blog_db.tb_admin_user,
+my_blog_db.tb_blog,
+my_blog_db.tb_blog_category,
+my_blog_db.tb_blog_comment,
+my_blog_db.tb_blog_tag,
+my_blog_db.tb_blog_tag_relation,
+my_blog_db.tb_config,
+my_blog_db.tb_link;
+
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
@@ -105,9 +115,9 @@ CREATE TABLE `tb_config` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `tb_config` */
-INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('footerAbout', 'your personal blog. have fun.', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
+INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('footerAbout', '仅供分享使用', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
 INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('footerCopyRight', '2024 橙子', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
-INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('footerICP', '浙ICP备17008806号-3', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
+INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('footerICP', '皖ICP备2025075088号-1', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
 INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('footerPoweredBy', 'https://github.com/ChengHaoRan666', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
 INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('footerPoweredByURL', 'https://github.com/ChengHaoRan666', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
 INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time) VALUES ('websiteDescription', 'personal blog是SpringBoot2+Thymeleaf+Mybatis建造的个人博客网站.SpringBoot实战博客源码.个人博客搭建', '2024-12-01 20:33:23', '2024-12-01 20:33:23');
