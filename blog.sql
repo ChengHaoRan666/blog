@@ -1,13 +1,3 @@
-drop table
-my_blog_db.tb_admin_user,
-my_blog_db.tb_blog,
-my_blog_db.tb_blog_category,
-my_blog_db.tb_blog_comment,
-my_blog_db.tb_blog_tag,
-my_blog_db.tb_blog_tag_relation,
-my_blog_db.tb_config,
-my_blog_db.tb_link;
-
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
