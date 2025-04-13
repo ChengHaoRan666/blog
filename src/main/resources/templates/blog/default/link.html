@@ -26,7 +26,8 @@
                                 <h2>推荐网站</h2>
                                 <ul>
                                     <th:block th:each="recommendLink : ${recommendLinks}">
-                                        <li><a th:href="@{${recommendLink.linkUrl}}" th:text="${recommendLink.linkName}">推荐网站</a>
+                                        <li><a th:href="@{${recommendLink.linkUrl}}"
+                                               th:text="${recommendLink.linkName}">推荐网站</a>
                                             -
                                             <th:block th:text="${recommendLink.linkDescription}"></th:block>
                                         </li>

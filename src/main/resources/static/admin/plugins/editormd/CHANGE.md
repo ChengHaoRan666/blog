@@ -451,6 +451,7 @@ v1.2.0 主要更新：
 -
 
 改进：帮助对话框里的链接改为新窗口打开，避免直接跳转到链接，导致编辑内容丢失的问题 [#79](https://github.com/pandao/editor.md/issues/79)；
+
 - 改进和完善编辑器配置项；
   - 新增配置项 `tabSize`、`indentUnit` 和 `lineWrapping`；
   - 新增配置项 `autoCloseBrackets` 和 `showTrailingSpace` ；

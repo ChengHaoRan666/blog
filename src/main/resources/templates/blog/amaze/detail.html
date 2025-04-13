@@ -14,6 +14,7 @@
         .hljs {
             background: none;
         }
+
         pre code {
             white-space: pre;
         }
@@ -63,7 +64,8 @@
                 <div class="am-article-bd article-body" id="post-content">
                     <th:block th:utext="${blogDetailVO.blogContent}"/>
                     <aside class="blog-rights clearfix">
-                        <p>本站文章除注明转载/出处外，皆为作者原创，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文链接，否则保留追究法律责任的权利。</p>
+                        <p>
+                            本站文章除注明转载/出处外，皆为作者原创，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文链接，否则保留追究法律责任的权利。</p>
                     </aside>
                 </div>
             </article>
@@ -172,7 +174,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <textarea id="commentBody" name="commentBody" placeholder="(*必填)请输入你的评论" rows="5"></textarea>
+                        <textarea id="commentBody" name="commentBody" placeholder="(*必填)请输入你的评论"
+                                  rows="5"></textarea>
                     </td>
                 </tr>
                 <tr>
