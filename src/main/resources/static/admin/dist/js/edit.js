@@ -43,7 +43,7 @@ $(function () {
                         xhr.open("POST", "/admin/upload/file");
                         xhr.onreadystatechange = function () {
                             if (xhr.readyState == 4 && xhr.status == 200) {
-                                var json=JSON.parse(xhr.responseText);
+                                var json = JSON.parse(xhr.responseText);
                                 if (json.resultCode == 200) {
                                     blogEditor.insertValue("![](" + json.data + ")");
                                 } else {
@@ -195,8 +195,7 @@ $('#saveButton').click(function () {
                 }).then(function () {
                     window.location.href = "/admin/blogs";
                 })
-            }
-            else {
+            } else {
                 $('#articleModal').modal('hide');
                 swal(result.message, {
                     icon: "error",

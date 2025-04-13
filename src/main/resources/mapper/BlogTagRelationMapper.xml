@@ -8,8 +8,8 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-    relation_id, blog_id, tag_id, create_time
-  </sql>
+        relation_id, blog_id, tag_id, create_time
+    </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -35,19 +35,21 @@
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tb_blog_tag_relation
-    where relation_id = #{relationId,jdbcType=BIGINT}
-  </delete>
+        delete
+        from tb_blog_tag_relation
+        where relation_id = #{relationId,jdbcType=BIGINT}
+    </delete>
     <delete id="deleteByBlogId" parameterType="java.lang.Long">
-        delete from tb_blog_tag_relation
+        delete
+        from tb_blog_tag_relation
         where blog_id = #{blogId,jdbcType=BIGINT}
     </delete>
     <insert id="insert" parameterType="com.site.blog.my.core.entity.BlogTagRelation">
-    insert into tb_blog_tag_relation (relation_id, blog_id, tag_id,
-      create_time)
-    values (#{relationId,jdbcType=BIGINT}, #{blogId,jdbcType=BIGINT}, #{tagId,jdbcType=INTEGER},
-      #{createTime,jdbcType=TIMESTAMP})
-  </insert>
+        insert into tb_blog_tag_relation (relation_id, blog_id, tag_id,
+                                          create_time)
+        values (#{relationId,jdbcType=BIGINT}, #{blogId,jdbcType=BIGINT}, #{tagId,jdbcType=INTEGER},
+                #{createTime,jdbcType=TIMESTAMP})
+    </insert>
     <insert id="insertSelective" parameterType="com.site.blog.my.core.entity.BlogTagRelation">
         insert into tb_blog_tag_relation
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -102,10 +104,10 @@
         where relation_id = #{relationId,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.site.blog.my.core.entity.BlogTagRelation">
-    update tb_blog_tag_relation
-    set blog_id = #{blogId,jdbcType=BIGINT},
-      tag_id = #{tagId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where relation_id = #{relationId,jdbcType=BIGINT}
-  </update>
+        update tb_blog_tag_relation
+        set blog_id     = #{blogId,jdbcType=BIGINT},
+            tag_id      = #{tagId,jdbcType=INTEGER},
+            create_time = #{createTime,jdbcType=TIMESTAMP}
+        where relation_id = #{relationId,jdbcType=BIGINT}
+    </update>
 </mapper>

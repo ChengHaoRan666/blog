@@ -10,8 +10,8 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-    category_id, category_name, category_icon, category_rank, is_deleted, create_time
-  </sql>
+        category_id, category_name, category_icon, category_rank, is_deleted, create_time
+    </sql>
     <select id="findCategoryList" parameterType="Map" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -24,8 +24,9 @@
     </select>
 
     <select id="getTotalCategories" parameterType="Map" resultType="int">
-    select count(*)  from tb_blog_category
-    where is_deleted=0
+        select count(*)
+        from tb_blog_category
+        where is_deleted = 0
     </select>
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -52,8 +53,10 @@
         where category_name = #{categoryName,jdbcType=VARCHAR} AND is_deleted = 0
     </select>
     <update id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    UPDATE tb_blog_category SET  is_deleted = 1
-    where category_id = #{categoryId,jdbcType=INTEGER} AND is_deleted = 0
+        UPDATE tb_blog_category
+        SET is_deleted = 1
+        where category_id = #{categoryId,jdbcType=INTEGER}
+          AND is_deleted = 0
     </update>
     <update id="deleteBatch">
         update tb_blog_category
@@ -63,13 +66,11 @@
         </foreach>
     </update>
     <insert id="insert" parameterType="com.site.blog.my.core.entity.BlogCategory">
-    insert into tb_blog_category (category_id, category_name, category_icon, 
-      category_rank, is_deleted, create_time
-      )
-    values (#{categoryId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{categoryIcon,jdbcType=VARCHAR}, 
-      #{categoryRank,jdbcType=INTEGER}, #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
+        insert into tb_blog_category (category_id, category_name, category_icon,
+                                      category_rank, is_deleted, create_time)
+        values (#{categoryId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{categoryIcon,jdbcType=VARCHAR},
+                #{categoryRank,jdbcType=INTEGER}, #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
+    </insert>
     <insert id="insertSelective" parameterType="com.site.blog.my.core.entity.BlogCategory">
         insert into tb_blog_category
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -135,12 +136,12 @@
         where category_id = #{categoryId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.site.blog.my.core.entity.BlogCategory">
-    update tb_blog_category
-    set category_name = #{categoryName,jdbcType=VARCHAR},
-      category_icon = #{categoryIcon,jdbcType=VARCHAR},
-      category_rank = #{categoryRank,jdbcType=INTEGER},
-      is_deleted = #{isDeleted,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where category_id = #{categoryId,jdbcType=INTEGER}
+        update tb_blog_category
+        set category_name = #{categoryName,jdbcType=VARCHAR},
+            category_icon = #{categoryIcon,jdbcType=VARCHAR},
+            category_rank = #{categoryRank,jdbcType=INTEGER},
+            is_deleted    = #{isDeleted,jdbcType=TINYINT},
+            create_time   = #{createTime,jdbcType=TIMESTAMP}
+        where category_id = #{categoryId,jdbcType=INTEGER}
     </update>
 </mapper>

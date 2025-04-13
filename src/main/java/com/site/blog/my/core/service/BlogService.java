@@ -49,6 +49,7 @@ public interface BlogService {
      * @return
      */
     List<SimpleBlogListVO> getBlogListForIndexPage(int type);
+
     /**
      * 文章详情
      *

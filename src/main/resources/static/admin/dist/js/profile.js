@@ -1,7 +1,7 @@
 $(function () {
     //修改个人信息
     $('#updateUserNameButton').click(function () {
-        $("#updateUserNameButton").attr("disabled",true);
+        $("#updateUserNameButton").attr("disabled", true);
         var userName = $('#loginUserName').val();
         var nickName = $('#nickName').val();
         if (validUserNameForUpdate(userName, nickName)) {
@@ -16,17 +16,17 @@ $(function () {
                         alert('修改成功');
                     } else {
                         alert('修改失败');
-                        $("#updateUserNameButton").prop("disabled",false);
+                        $("#updateUserNameButton").prop("disabled", false);
                     }
                 }
             });
         } else {
-            $("#updateUserNameButton").prop("disabled",false);
+            $("#updateUserNameButton").prop("disabled", false);
         }
     });
     //修改密码
     $('#updatePasswordButton').click(function () {
-        $("#updatePasswordButton").attr("disabled",true);
+        $("#updatePasswordButton").attr("disabled", true);
         var originalPassword = $('#originalPassword').val();
         var newPassword = $('#newPassword').val();
         if (validPasswordForUpdate(originalPassword, newPassword)) {
@@ -42,12 +42,12 @@ $(function () {
                         window.location.href = '/admin/login';
                     } else {
                         alert('修改失败');
-                        $("#updatePasswordButton").attr("disabled",false);
+                        $("#updatePasswordButton").attr("disabled", false);
                     }
                 }
             });
         } else {
-            $("#updatePasswordButton").attr("disabled",false);
+            $("#updatePasswordButton").attr("disabled", false);
         }
     });
 })

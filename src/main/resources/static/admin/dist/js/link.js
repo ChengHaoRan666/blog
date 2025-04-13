@@ -100,8 +100,7 @@ $('#saveButton').click(function () {
                     icon: "success",
                 });
                 reload();
-            }
-            else {
+            } else {
                 $('#linkModal').modal('hide');
                 swal("保存失败", {
                     icon: "error",

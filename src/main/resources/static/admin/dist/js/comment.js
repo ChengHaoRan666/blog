@@ -40,11 +40,11 @@ $(function () {
     $(window).resize(function () {
         $("#jqGrid").setGridWidth($(".card-body").width());
     });
+
     function statusFormatter(cellvalue) {
         if (cellvalue == 0) {
             return "<button type=\"button\" class=\"btn btn-block btn-secondary btn-sm\" style=\"width: 80%;\">待审核</button>";
-        }
-        else if (cellvalue == 1) {
+        } else if (cellvalue == 1) {
             return "<button type=\"button\" class=\"btn btn-block btn-success btn-sm\" style=\"width: 80%;\">已审核</button>";
         }
     }
@@ -180,8 +180,7 @@ $('#saveButton').click(function () {
                         icon: "success",
                     });
                     reload();
-                }
-                else {
+                } else {
                     $('#replyModal').modal('hide');
                     swal(result.message, {
                         icon: "error",

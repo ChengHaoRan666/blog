@@ -99,8 +99,7 @@ $('#saveButton').click(function () {
                         icon: "success",
                     });
                     reload();
-                }
-                else {
+                } else {
                     $('#categoryModal').modal('hide');
                     swal(result.message, {
                         icon: "error",

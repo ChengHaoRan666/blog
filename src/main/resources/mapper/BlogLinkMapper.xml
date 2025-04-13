@@ -12,9 +12,9 @@
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-    link_id, link_type, link_name, link_url, link_description, link_rank, is_deleted, 
+        link_id, link_type, link_name, link_url, link_description, link_rank, is_deleted,
     create_time
-  </sql>
+    </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -23,8 +23,10 @@
     </select>
 
     <update id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    UPDATE tb_link SET is_deleted = 1
-    where link_id = #{linkId,jdbcType=INTEGER} AND is_deleted = 0
+        UPDATE tb_link
+        SET is_deleted = 1
+        where link_id = #{linkId,jdbcType=INTEGER}
+          AND is_deleted = 0
     </update>
 
     <update id="deleteBatch">
@@ -47,17 +49,18 @@
     </select>
 
     <select id="getTotalLinks" parameterType="Map" resultType="int">
-        select count(*)  from tb_link
-        where is_deleted=0
+        select count(*)
+        from tb_link
+        where is_deleted = 0
     </select>
 
     <insert id="insert" parameterType="com.site.blog.my.core.entity.BlogLink">
-    insert into tb_link (link_id, link_type, link_name, 
-      link_url, link_description, link_rank, 
-      is_deleted, create_time)
-    values (#{linkId,jdbcType=INTEGER}, #{linkType,jdbcType=TINYINT}, #{linkName,jdbcType=VARCHAR}, 
-      #{linkUrl,jdbcType=VARCHAR}, #{linkDescription,jdbcType=VARCHAR}, #{linkRank,jdbcType=INTEGER}, 
-      #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
+        insert into tb_link (link_id, link_type, link_name,
+                             link_url, link_description, link_rank,
+                             is_deleted, create_time)
+        values (#{linkId,jdbcType=INTEGER}, #{linkType,jdbcType=TINYINT}, #{linkName,jdbcType=VARCHAR},
+                #{linkUrl,jdbcType=VARCHAR}, #{linkDescription,jdbcType=VARCHAR}, #{linkRank,jdbcType=INTEGER},
+                #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP})
     </insert>
     <insert id="insertSelective" parameterType="com.site.blog.my.core.entity.BlogLink">
         insert into tb_link
@@ -142,14 +145,14 @@
         where link_id = #{linkId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.site.blog.my.core.entity.BlogLink">
-    update tb_link
-    set link_type = #{linkType,jdbcType=TINYINT},
-      link_name = #{linkName,jdbcType=VARCHAR},
-      link_url = #{linkUrl,jdbcType=VARCHAR},
-      link_description = #{linkDescription,jdbcType=VARCHAR},
-      link_rank = #{linkRank,jdbcType=INTEGER},
-      is_deleted = #{isDeleted,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where link_id = #{linkId,jdbcType=INTEGER}
-  </update>
+        update tb_link
+        set link_type        = #{linkType,jdbcType=TINYINT},
+            link_name        = #{linkName,jdbcType=VARCHAR},
+            link_url         = #{linkUrl,jdbcType=VARCHAR},
+            link_description = #{linkDescription,jdbcType=VARCHAR},
+            link_rank        = #{linkRank,jdbcType=INTEGER},
+            is_deleted       = #{isDeleted,jdbcType=TINYINT},
+            create_time      = #{createTime,jdbcType=TIMESTAMP}
+        where link_id = #{linkId,jdbcType=INTEGER}
+    </update>
 </mapper>

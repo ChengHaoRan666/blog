@@ -16,9 +16,9 @@
         <result column="is_deleted" jdbcType="TINYINT" property="isDeleted"/>
     </resultMap>
     <sql id="Base_Column_List">
-    comment_id, blog_id, commentator, email, website_url, comment_body, comment_create_time, 
+        comment_id, blog_id, commentator, email, website_url, comment_body, comment_create_time,
     commentator_ip, reply_body, reply_create_time, comment_status, is_deleted
-  </sql>
+    </sql>
     <select id="findBlogCommentList" parameterType="Map" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -53,9 +53,11 @@
         where comment_id = #{commentId,jdbcType=BIGINT} and is_deleted=0
     </select>
     <update id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    update tb_blog_comment set is_deleted=1
-    where comment_id = #{commentId,jdbcType=BIGINT} and is_deleted=0
-  </update>
+        update tb_blog_comment
+        set is_deleted=1
+        where comment_id = #{commentId,jdbcType=BIGINT}
+          and is_deleted = 0
+    </update>
     <update id="checkDone">
         update tb_blog_comment
         set comment_status=1 where comment_id in
@@ -72,17 +74,16 @@
         </foreach>
     </update>
     <insert id="insert" parameterType="com.site.blog.my.core.entity.BlogComment">
-    insert into tb_blog_comment (comment_id, blog_id, commentator, 
-      email, website_url, comment_body, 
-      comment_create_time, commentator_ip, reply_body, 
-      reply_create_time, comment_status, is_deleted
-      )
-    values (#{commentId,jdbcType=BIGINT}, #{blogId,jdbcType=BIGINT}, #{commentator,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{websiteUrl,jdbcType=VARCHAR}, #{commentBody,jdbcType=VARCHAR}, 
-      #{commentCreateTime,jdbcType=TIMESTAMP}, #{commentatorIp,jdbcType=VARCHAR}, #{replyBody,jdbcType=VARCHAR}, 
-      #{replyCreateTime,jdbcType=TIMESTAMP}, #{commentStatus,jdbcType=TINYINT}, #{isDeleted,jdbcType=TINYINT}
-      )
-  </insert>
+        insert into tb_blog_comment (comment_id, blog_id, commentator,
+                                     email, website_url, comment_body,
+                                     comment_create_time, commentator_ip, reply_body,
+                                     reply_create_time, comment_status, is_deleted)
+        values (#{commentId,jdbcType=BIGINT}, #{blogId,jdbcType=BIGINT}, #{commentator,jdbcType=VARCHAR},
+                #{email,jdbcType=VARCHAR}, #{websiteUrl,jdbcType=VARCHAR}, #{commentBody,jdbcType=VARCHAR},
+                #{commentCreateTime,jdbcType=TIMESTAMP}, #{commentatorIp,jdbcType=VARCHAR},
+                #{replyBody,jdbcType=VARCHAR},
+                #{replyCreateTime,jdbcType=TIMESTAMP}, #{commentStatus,jdbcType=TINYINT}, #{isDeleted,jdbcType=TINYINT})
+    </insert>
     <insert id="insertSelective" parameterType="com.site.blog.my.core.entity.BlogComment">
         insert into tb_blog_comment
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -202,18 +203,18 @@
         where comment_id = #{commentId,jdbcType=BIGINT}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.site.blog.my.core.entity.BlogComment">
-    update tb_blog_comment
-    set blog_id = #{blogId,jdbcType=BIGINT},
-      commentator = #{commentator,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      website_url = #{websiteUrl,jdbcType=VARCHAR},
-      comment_body = #{commentBody,jdbcType=VARCHAR},
-      comment_create_time = #{commentCreateTime,jdbcType=TIMESTAMP},
-      commentator_ip = #{commentatorIp,jdbcType=VARCHAR},
-      reply_body = #{replyBody,jdbcType=VARCHAR},
-      reply_create_time = #{replyCreateTime,jdbcType=TIMESTAMP},
-      comment_status = #{commentStatus,jdbcType=TINYINT},
-      is_deleted = #{isDeleted,jdbcType=TINYINT}
-    where comment_id = #{commentId,jdbcType=BIGINT}
-  </update>
+        update tb_blog_comment
+        set blog_id             = #{blogId,jdbcType=BIGINT},
+            commentator         = #{commentator,jdbcType=VARCHAR},
+            email               = #{email,jdbcType=VARCHAR},
+            website_url         = #{websiteUrl,jdbcType=VARCHAR},
+            comment_body        = #{commentBody,jdbcType=VARCHAR},
+            comment_create_time = #{commentCreateTime,jdbcType=TIMESTAMP},
+            commentator_ip      = #{commentatorIp,jdbcType=VARCHAR},
+            reply_body          = #{replyBody,jdbcType=VARCHAR},
+            reply_create_time   = #{replyCreateTime,jdbcType=TIMESTAMP},
+            comment_status      = #{commentStatus,jdbcType=TINYINT},
+            is_deleted          = #{isDeleted,jdbcType=TINYINT}
+        where comment_id = #{commentId,jdbcType=BIGINT}
+    </update>
 </mapper>

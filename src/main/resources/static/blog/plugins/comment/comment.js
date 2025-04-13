@@ -57,8 +57,7 @@ $('#commentSubmit').click(function () {
                 });
                 $('#commentBody').val('');
                 $('#verifyCode').val('');
-            }
-            else {
+            } else {
                 swal(result.message, {
                     icon: "error",
                 });

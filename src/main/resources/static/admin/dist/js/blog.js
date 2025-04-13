@@ -5,7 +5,13 @@ $(function () {
         colModel: [
             {label: 'id', name: 'blogId', index: 'blogId', width: 50, key: true, hidden: true},
             {label: '标题', name: 'blogTitle', index: 'blogTitle', width: 140},
-            {label: '预览图', name: 'blogCoverImage', index: 'blogCoverImage', width: 120, formatter: coverImageFormatter},
+            {
+                label: '预览图',
+                name: 'blogCoverImage',
+                index: 'blogCoverImage',
+                width: 120,
+                formatter: coverImageFormatter
+            },
             {label: '浏览量', name: 'blogViews', index: 'blogViews', width: 60},
             {label: '状态', name: 'blogStatus', index: 'blogStatus', width: 60, formatter: statusFormatter},
             {label: '博客分类', name: 'blogCategoryName', index: 'blogCategoryName', width: 60},
@@ -49,8 +55,7 @@ $(function () {
     function statusFormatter(cellvalue) {
         if (cellvalue == 0) {
             return "<button type=\"button\" class=\"btn btn-block btn-secondary btn-sm\" style=\"width: 50%;\">草稿</button>";
-        }
-        else if (cellvalue == 1) {
+        } else if (cellvalue == 1) {
             return "<button type=\"button\" class=\"btn btn-block btn-success btn-sm\" style=\"width: 50%;\">发布</button>";
         }
     }

@@ -4,7 +4,6 @@ Highlight.js — это инструмент для подсветки синт�
 и в браузере, и на сервере. Он работает с практически любой HTML разметкой, не
 зависит от каких-либо фреймворков и умеет автоматически определять язык.
 
-
 ## Начало работы
 
 Минимум, что нужно сделать для использования highlight.js на веб-странице — это
@@ -64,7 +63,6 @@ $('div.code').each(function(i, block) {
 
 Другие опции можно найти в документации функции [`configure`][4].
 
-
 ## Web Workers
 
 Подсветку можно запустить внутри web worker'а, чтобы окно
@@ -91,7 +89,6 @@ onmessage = function(event) {
 }
 ```
 
-
 ## Установка библиотеки
 
 Highlight.js можно использовать в браузере прямо с CDN хостинга или скачать
@@ -116,12 +113,10 @@ Highlight.js можно использовать в браузере прямо 
 r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
 ```
 
-
 ## Лицензия
 
 Highlight.js распространяется под лицензией BSD. Подробнее читайте файл
 [LICENSE][7].
-
 
 ## Ссылки
 
@@ -133,10 +128,17 @@ Highlight.js распространяется под лицензией BSD. П�
 Авторы и контрибьюторы перечислены в файле [AUTHORS.ru.txt][8] file.
 
 [1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
+
 [2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
+
 [3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightblock-block
+
 [4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
+
 [5]: https://highlightjs.org/download/
+
 [6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
+
 [7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
+
 [8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.ru.txt

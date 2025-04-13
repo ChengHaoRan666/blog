@@ -66,8 +66,7 @@ function tagAdd() {
                         icon: "success",
                     });
                     reload();
-                }
-                else {
+                } else {
                     $("#tagName").val('')
                     swal(result.message, {
                         icon: "error",
