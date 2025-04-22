@@ -1,9 +1,9 @@
 package com.site.blog.my.core.service.impl;
 
-import com.site.blog.my.core.dao.BlogTagMapper;
-import com.site.blog.my.core.dao.BlogTagRelationMapper;
-import com.site.blog.my.core.entity.BlogTag;
-import com.site.blog.my.core.entity.BlogTagCount;
+import com.site.blog.my.core.domain.entity.BlogTag;
+import com.site.blog.my.core.domain.entity.BlogTagCount;
+import com.site.blog.my.core.mapper.BlogTagMapper;
+import com.site.blog.my.core.mapper.BlogTagRelationMapper;
 import com.site.blog.my.core.service.TagService;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.PageResult;

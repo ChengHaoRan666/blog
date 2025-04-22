@@ -1,6 +1,6 @@
 package com.site.blog.my.core.controller.admin;
 
-import com.site.blog.my.core.entity.BlogLink;
+import com.site.blog.my.core.domain.entity.BlogLink;
 import com.site.blog.my.core.service.LinkService;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.Result;

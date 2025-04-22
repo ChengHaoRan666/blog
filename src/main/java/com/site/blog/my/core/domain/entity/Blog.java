@@ -1,4 +1,4 @@
-package com.site.blog.my.core.entity;
+package com.site.blog.my.core.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

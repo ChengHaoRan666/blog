@@ -1,4 +1,4 @@
-package com.site.blog.my.core.entity;
+package com.site.blog.my.core.domain.entity;
 
 public class BlogTagCount {
     private Integer tagId;

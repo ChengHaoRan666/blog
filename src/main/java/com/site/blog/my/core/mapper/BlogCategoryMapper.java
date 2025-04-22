@@ -1,6 +1,6 @@
-package com.site.blog.my.core.dao;
+package com.site.blog.my.core.mapper;
 
-import com.site.blog.my.core.entity.BlogCategory;
+import com.site.blog.my.core.domain.entity.BlogCategory;
 import com.site.blog.my.core.util.PageQueryUtil;
 import org.apache.ibatis.annotations.Param;
 

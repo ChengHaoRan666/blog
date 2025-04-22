@@ -1,6 +1,6 @@
 package com.site.blog.my.core.service;
 
-import com.site.blog.my.core.entity.BlogCategory;
+import com.site.blog.my.core.domain.entity.BlogCategory;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.PageResult;
 

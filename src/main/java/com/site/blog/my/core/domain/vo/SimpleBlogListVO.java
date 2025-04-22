@@ -1,4 +1,4 @@
-package com.site.blog.my.core.controller.vo;
+package com.site.blog.my.core.domain.vo;
 
 import java.io.Serializable;
 

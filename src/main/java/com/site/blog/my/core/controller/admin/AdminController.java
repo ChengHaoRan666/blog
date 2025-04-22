@@ -1,7 +1,7 @@
 package com.site.blog.my.core.controller.admin;
 
 import cn.hutool.captcha.ShearCaptcha;
-import com.site.blog.my.core.entity.AdminUser;
+import com.site.blog.my.core.domain.entity.AdminUser;
 import com.site.blog.my.core.service.*;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;

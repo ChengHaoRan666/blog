@@ -1,6 +1,6 @@
-package com.site.blog.my.core.dao;
+package com.site.blog.my.core.mapper;
 
-import com.site.blog.my.core.entity.BlogComment;
+import com.site.blog.my.core.domain.entity.BlogComment;
 
 import java.util.List;
 import java.util.Map;

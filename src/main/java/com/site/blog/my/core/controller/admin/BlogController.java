@@ -1,7 +1,7 @@
 package com.site.blog.my.core.controller.admin;
 
 import com.site.blog.my.core.config.Constants;
-import com.site.blog.my.core.entity.Blog;
+import com.site.blog.my.core.domain.entity.Blog;
 import com.site.blog.my.core.service.BlogService;
 import com.site.blog.my.core.service.CategoryService;
 import com.site.blog.my.core.util.MyBlogUtils;

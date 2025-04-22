@@ -1,13 +1,13 @@
 package com.site.blog.my.core.service.impl;
 
-import com.site.blog.my.core.controller.vo.BlogDetailVO;
-import com.site.blog.my.core.controller.vo.BlogListVO;
-import com.site.blog.my.core.controller.vo.SimpleBlogListVO;
-import com.site.blog.my.core.dao.*;
-import com.site.blog.my.core.entity.Blog;
-import com.site.blog.my.core.entity.BlogCategory;
-import com.site.blog.my.core.entity.BlogTag;
-import com.site.blog.my.core.entity.BlogTagRelation;
+import com.site.blog.my.core.domain.entity.Blog;
+import com.site.blog.my.core.domain.entity.BlogCategory;
+import com.site.blog.my.core.domain.entity.BlogTag;
+import com.site.blog.my.core.domain.entity.BlogTagRelation;
+import com.site.blog.my.core.domain.vo.BlogDetailVO;
+import com.site.blog.my.core.domain.vo.BlogListVO;
+import com.site.blog.my.core.domain.vo.SimpleBlogListVO;
+import com.site.blog.my.core.mapper.*;
 import com.site.blog.my.core.service.BlogService;
 import com.site.blog.my.core.util.MarkDownUtil;
 import com.site.blog.my.core.util.PageQueryUtil;

@@ -1,6 +1,6 @@
-package com.site.blog.my.core.dao;
+package com.site.blog.my.core.mapper;
 
-import com.site.blog.my.core.entity.BlogLink;
+import com.site.blog.my.core.domain.entity.BlogLink;
 import com.site.blog.my.core.util.PageQueryUtil;
 
 import java.util.List;

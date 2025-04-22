@@ -1,7 +1,7 @@
 package com.site.blog.my.core.service.impl;
 
-import com.site.blog.my.core.dao.BlogCommentMapper;
-import com.site.blog.my.core.entity.BlogComment;
+import com.site.blog.my.core.domain.entity.BlogComment;
+import com.site.blog.my.core.mapper.BlogCommentMapper;
 import com.site.blog.my.core.service.CommentService;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.PageResult;

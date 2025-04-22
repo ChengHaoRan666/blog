@@ -1,6 +1,6 @@
-package com.site.blog.my.core.dao;
+package com.site.blog.my.core.mapper;
 
-import com.site.blog.my.core.entity.AdminUser;
+import com.site.blog.my.core.domain.entity.AdminUser;
 import org.apache.ibatis.annotations.Param;
 
 public interface AdminUserMapper {
