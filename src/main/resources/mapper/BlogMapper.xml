@@ -110,6 +110,20 @@
         where blog_sub_url = #{subUrl,jdbcType=VARCHAR} and is_deleted = 0 limit 1
     </select>
 
+    <select id="getAll" parameterType="Map" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from tb_blog
+        where is_deleted = 0
+        <if test="blogStatus!=null">
+            AND blog_status = 1
+        </if>
+        order by blog_id desc
+    </select>
+
+
     <update id="deleteByPrimaryKey" parameterType="java.lang.Long">
         UPDATE tb_blog
         SET is_deleted = 1
