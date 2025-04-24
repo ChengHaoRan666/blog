@@ -3,14 +3,7 @@ package com.site.blog.my.core.util;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * 分页工具类
- *
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link http://13blog.site
- */
+
 public class PageResult implements Serializable {
 
     //总记录数

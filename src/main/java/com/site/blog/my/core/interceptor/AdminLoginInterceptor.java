@@ -9,10 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * 后台系统身份验证拦截器
  *
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link http://13blog.site
+ * @author 程浩然
+ * @since 2025-01-04
  */
 @Component
 public class AdminLoginInterceptor implements HandlerInterceptor {

@@ -7,6 +7,13 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * SpringBoot配置类
+ *
+ * @author 程浩然
+ * @since 2025-01-04
+ */
+
 @Configuration
 public class MyBlogWebMvcConfigurer implements WebMvcConfigurer {
 

@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.*;
 public class AiController {
     @Autowired
     private BlogQAService blogQAService;
+    @Autowired
+    private BlogTask blogTask;
+    @Autowired
+    private BlogVectorService blogVectorService;
 
     /**
      * 输入问题返回结果
@@ -32,12 +36,6 @@ public class AiController {
         result.setData(blogQAService.answerQuestion(question));
         return result;
     }
-
-
-    @Autowired
-    private BlogTask blogTask;
-    @Autowired
-    private BlogVectorService blogVectorService;
 
     @GetMapping("/test")
     public void test() {
