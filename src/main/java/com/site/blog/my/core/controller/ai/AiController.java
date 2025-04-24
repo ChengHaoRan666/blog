@@ -2,12 +2,11 @@ package com.site.blog.my.core.controller.ai;
 
 import com.site.blog.my.core.domain.vo.AnswerVO;
 import com.site.blog.my.core.service.BlogQAService;
+import com.site.blog.my.core.service.BlogVectorService;
+import com.site.blog.my.core.task.BlogTask;
 import com.site.blog.my.core.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * AI控制层
@@ -32,5 +31,21 @@ public class AiController {
         Result<AnswerVO> result = new Result<>();
         result.setData(blogQAService.answerQuestion(question));
         return result;
+    }
+
+
+    @Autowired
+    private BlogTask blogTask;
+    @Autowired
+    private BlogVectorService blogVectorService;
+
+    @GetMapping("/test")
+    public void test() {
+        blogTask.blogInsert();
+    }
+
+    @GetMapping("/clear")
+    public void clear() {
+        blogVectorService.clear();
     }
 }

@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Service
 public class BlogQAService {
     @Autowired
-    private RedisVectorStore vectorStore;
+    private BlogVectorService vectorService;
     @Autowired
     private DeepSeekService deepSeekService;
 
@@ -30,7 +30,7 @@ public class BlogQAService {
      */
     public AnswerVO answerQuestion(String question) {
         // 1. 检索相关文档
-        List<Document> relevantPosts = vectorStore.similaritySearch(question, 3);
+        List<Document> relevantPosts = vectorService.similaritySearch(question, 3);
 
         // 2. 构建上下文（Markdown）
         String context = buildContext(relevantPosts);
@@ -75,9 +75,33 @@ public class BlogQAService {
      */
     private List<Reference> extractReferences(List<Document> posts) {
         return posts.stream()
-                .map(post -> new Reference(
-                        (String) post.getMetadata().get("title"),
-                        (String) post.getMetadata().get("url")))
+                .map(post -> {
+                    String content = post.getContent();
+                    String title = extractTitleFromContent(content);
+                    String url = extractUrlFromContent(content);
+                    return new Reference(title, url);
+                })
                 .collect(Collectors.toList());
     }
+
+    private String extractTitleFromContent(String content) {
+        // 假设 title 格式为 "Title: xxx"
+        for (String line : content.split("\n")) {
+            if (line.startsWith("Title:")) {
+                return line.substring("Title:".length()).trim();  // 提取 "Title: " 后面的部分
+            }
+        }
+        return "未命名标题";  // 如果没有找到 title，则返回默认值
+    }
+
+    private String extractUrlFromContent(String content) {
+        // 假设 URL 格式为 "URL: http://xxx"
+        for (String line : content.split("\n")) {
+            if (line.startsWith("URL:")) {
+                return line.substring("URL:".length()).trim();  // 提取 "URL: " 后面的部分
+            }
+        }
+        return null;  // 如果没有找到 URL，则返回 null
+    }
+
 }

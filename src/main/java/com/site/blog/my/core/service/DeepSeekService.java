@@ -19,6 +19,7 @@ public class DeepSeekService {
     @Autowired
     private AiClient aiClient;
 
+
     public String generateResponse(String question, String context) {
         // 可以添加DeepSeek特定的参数
         PromptTemplate promptTemplate = new PromptTemplate("""
@@ -32,13 +33,13 @@ public class DeepSeekService {
                 1. 使用中文回答
                 2. 保持专业且友好的语气
                 3. 引用上下文中的具体内容
-                4. 如果无法从给定内容中找到答案，请如实告知
+                4. 把自己带入到博客网站助手身份上
+                5. 如果无法从给定内容中找到答案，请如实告知
                 """);
         Map<String, Object> model = new HashMap<>();
         model.put("context", context);
         model.put("question", question);
         String problem = promptTemplate.render(model);
-        System.out.println("提问问题：\n" + problem);
         return aiClient.generate(problem);
     }
 }
