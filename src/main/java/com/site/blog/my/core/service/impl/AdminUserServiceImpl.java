@@ -35,10 +35,8 @@ public class AdminUserServiceImpl implements AdminUserService {
             if (originalPasswordMd5.equals(adminUser.getLoginPassword())) {
                 //设置新密码并修改
                 adminUser.setLoginPassword(newPasswordMd5);
-                if (adminUserMapper.updateByPrimaryKeySelective(adminUser) > 0) {
-                    //修改成功则返回true
-                    return true;
-                }
+                //修改成功则返回true
+                return adminUserMapper.updateByPrimaryKeySelective(adminUser) > 0;
             }
         }
         return false;
@@ -52,10 +50,8 @@ public class AdminUserServiceImpl implements AdminUserService {
             //修改信息
             adminUser.setLoginUserName(loginUserName);
             adminUser.setNickName(nickName);
-            if (adminUserMapper.updateByPrimaryKeySelective(adminUser) > 0) {
-                //修改成功则返回true
-                return true;
-            }
+            //修改成功则返回true
+            return adminUserMapper.updateByPrimaryKeySelective(adminUser) > 0;
         }
         return false;
     }
