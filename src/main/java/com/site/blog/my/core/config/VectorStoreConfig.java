@@ -41,11 +41,13 @@ public class VectorStoreConfig {
 
     @Bean
     public RedisVectorStore redisVectorStore() {
+        // 配置向量数据库的信息（url，前缀，索引名称）
         RedisVectorStore.RedisVectorStoreConfig redisVectorStoreConfig = RedisVectorStore.RedisVectorStoreConfig.builder()
                 .withURI(url)
                 .withPrefix(prefix)
                 .withIndexName(indexName)
                 .build();
+        // 将配置的向量数据库和自己实现的EmbeddingClient接口类配置进去
         return new RedisVectorStore(redisVectorStoreConfig, myBailianEmbeddingClient);
     }
 }

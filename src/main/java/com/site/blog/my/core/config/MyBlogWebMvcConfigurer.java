@@ -20,12 +20,18 @@ public class MyBlogWebMvcConfigurer implements WebMvcConfigurer {
     @Autowired
     private AdminLoginInterceptor adminLoginInterceptor;
 
+    /**
+     * 拦截器
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 添加一个拦截器，拦截以/admin为前缀的url路径
         registry.addInterceptor(adminLoginInterceptor).addPathPatterns("/admin/**").excludePathPatterns("/admin/login").excludePathPatterns("/admin/dist/**").excludePathPatterns("/admin/plugins/**");
     }
 
+    /**
+     * 静态资源映射
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/upload/**").addResourceLocations("file:" + Constants.FILE_UPLOAD_DIC);
