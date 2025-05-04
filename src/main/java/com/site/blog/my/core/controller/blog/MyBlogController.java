@@ -6,9 +6,9 @@ import com.site.blog.my.core.domain.entity.BlogLink;
 import com.site.blog.my.core.domain.vo.BlogDetailVO;
 import com.site.blog.my.core.service.*;
 import com.site.blog.my.core.util.*;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -18,17 +18,21 @@ import java.util.Map;
 
 @Controller
 public class MyBlogController {
-    @Autowired
+
+    //    public static String theme = "default";
+//    public static String theme = "yummy-jekyll";
+    public static String theme = "amaze";
+    @Resource
     private BlogService blogService;
-    @Autowired
+    @Resource
     private TagService tagService;
-    @Autowired
+    @Resource
     private LinkService linkService;
-    @Autowired
+    @Resource
     private CommentService commentService;
-    @Autowired
+    @Resource
     private ConfigService configService;
-    @Autowired
+    @Resource
     private CategoryService categoryService;
 
     /**
@@ -58,11 +62,9 @@ public class MyBlogController {
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
         request.setAttribute("pageName", "首页");
         request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/index";
+        return "blog/" + theme + "/index";
     }
 
-
-//TODO
     /**
      * Categories页面(包括分类数据和标签数据)
      *
@@ -74,7 +76,7 @@ public class MyBlogController {
         request.setAttribute("categories", categoryService.getAllCategories());
         request.setAttribute("pageName", "分类页面");
         request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/category";
+        return "blog/" + theme + "/category";
     }
 
     /**
@@ -91,7 +93,7 @@ public class MyBlogController {
         }
         request.setAttribute("pageName", "详情");
         request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/detail";
+        return "blog/" + theme + "/detail";
     }
 
     /**
@@ -120,7 +122,7 @@ public class MyBlogController {
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
         request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/list";
+        return "blog/" + theme + "/list";
     }
 
     /**
@@ -149,7 +151,7 @@ public class MyBlogController {
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
         request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/list";
+        return "blog/" + theme + "/list";
     }
 
     /**
@@ -178,7 +180,7 @@ public class MyBlogController {
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
         request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/list";
+        return "blog/" + theme + "/list";
     }
 
 
@@ -204,7 +206,7 @@ public class MyBlogController {
             }
         }
         request.setAttribute("configurations", configService.getAllConfigs());
-        return "blog/link";
+        return "blog/" + theme + "/link";
     }
 
     /**
@@ -268,7 +270,7 @@ public class MyBlogController {
             request.setAttribute("blogDetailVO", blogDetailVO);
             request.setAttribute("pageName", subUrl);
             request.setAttribute("configurations", configService.getAllConfigs());
-            return "blog/detail";
+            return "blog/" + theme + "/detail";
         } else {
             return "error/error_400";
         }
