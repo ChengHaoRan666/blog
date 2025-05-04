@@ -8,7 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Map;
 
-
+/**
+ * 异常处理
+ *
+ * @author 程浩然
+ * @since 2025-01-15
+ */
 @Controller
 public class ErrorPageConfig implements ErrorViewResolver {
     @Override

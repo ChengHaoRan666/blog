@@ -295,11 +295,7 @@ public class BlogServiceImpl implements BlogService {
     public BlogDetailVO getBlogDetailBySubUrl(String subUrl) {
         Blog blog = blogMapper.selectBySubUrl(subUrl);
         //不为空且状态为已发布
-        BlogDetailVO blogDetailVO = getBlogDetailVO(blog);
-        if (blogDetailVO != null) {
-            return blogDetailVO;
-        }
-        return null;
+        return getBlogDetailVO(blog);
     }
 
     /**

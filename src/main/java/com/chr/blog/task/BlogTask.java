@@ -29,9 +29,9 @@ public class BlogTask {
     private BlogVectorService blogVectorService;
 
     /**
-     * 定时任务：每三天凌晨 1 点执行一次，插入博客向量到 Redis 向量数据库
+     * 定时任务：每三天凌晨 3 点执行一次，插入博客向量到 Redis 向量数据库
      */
-    @Scheduled(cron = "0 0 1 */3 * ?")
+    @Scheduled(cron = "0 0 3 */3 * ?")
     public void blogInsert() {
         log.info("==== 开始执行向量同步任务 ====");
         // 清空向量数据库中的数据

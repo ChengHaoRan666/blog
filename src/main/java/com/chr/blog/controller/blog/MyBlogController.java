@@ -6,9 +6,9 @@ import com.chr.blog.domain.entity.BlogLink;
 import com.chr.blog.domain.vo.BlogDetailVO;
 import com.chr.blog.service.*;
 import com.chr.blog.util.*;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -16,46 +16,51 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 展示控制层
+ */
 @Controller
 public class MyBlogController {
-
-    //    public static String theme = "default";
-//    public static String theme = "yummy-jekyll";
-//    public static String theme = "amaze";
-    @Resource
+    @Autowired
     private BlogService blogService;
-    @Resource
+    @Autowired
     private TagService tagService;
-    @Resource
+    @Autowired
     private LinkService linkService;
-    @Resource
+    @Autowired
     private CommentService commentService;
-    @Resource
+    @Autowired
     private ConfigService configService;
-    @Resource
-    private CategoryService categoryService;
+
 
     /**
-     * 首页
+     * 查询首页数据
      *
-     * @return
+     * @param request request
+     * @return 视图 - 首页
      */
     @GetMapping({"/", "/index", "index.html"})
     public String index(HttpServletRequest request) {
         return this.page(request, 1);
     }
 
+
     /**
-     * 首页 分页数据
+     * 分页查询首页数据
      *
-     * @return
+     * @param request request
+     * @param pageNum 当前页号
+     * @return 视图 - 首页
      */
     @GetMapping({"/page/{pageNum}"})
     public String page(HttpServletRequest request, @PathVariable("pageNum") int pageNum) {
+        // 获取数据，默认八条
         PageResult blogPageResult = blogService.getBlogsForIndexPage(pageNum);
         if (blogPageResult == null) {
             return "error/error_404";
         }
+
+        // 设置数据返回给视图
         request.setAttribute("blogPageResult", blogPageResult);
         request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
@@ -67,18 +72,25 @@ public class MyBlogController {
 
 
     /**
-     * 详情页
+     * 获取博客详情页
      *
-     * @return
+     * @param request     request
+     * @param blogId      博客id
+     * @param commentPage 评论页号
+     * @return 视图 - 详情页
      */
     @GetMapping({"/blog/{blogId}", "/article/{blogId}"})
     public String detail(HttpServletRequest request, @PathVariable("blogId") Long blogId, @RequestParam(value = "commentPage", required = false, defaultValue = "1") Integer commentPage) {
+        // 获取博客内容
         BlogDetailVO blogDetailVO = blogService.getBlogDetail(blogId);
+        // 如果博客内容不为空，设置博客内容和评论内容
         if (blogDetailVO != null) {
             request.setAttribute("blogDetailVO", blogDetailVO);
             request.setAttribute("commentPageResult", commentService.getCommentPageByBlogIdAndPageNum(blogId, commentPage));
         }
+        // 设置名称
         request.setAttribute("pageName", "详情");
+        // 设置配置项
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/detail";
     }
@@ -86,6 +98,8 @@ public class MyBlogController {
     /**
      * 标签列表页
      *
+     * @param request request
+     * @param tagName 标签名称
      * @return
      */
     @GetMapping({"/tag/{tagName}"})
@@ -244,6 +258,8 @@ public class MyBlogController {
         comment.setCommentBody(MyBlogUtils.cleanString(commentBody));
         return ResultGenerator.genSuccessResult(commentService.addComment(comment));
     }
+
+    //TODO：修改关于页面为ai助手页面
 
     /**
      * 关于页面 以及其他配置了subUrl的文章页

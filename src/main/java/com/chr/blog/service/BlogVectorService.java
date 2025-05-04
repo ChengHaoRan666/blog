@@ -81,7 +81,6 @@ public class BlogVectorService {
         List<String> contentList = formatTextForEmbedding(blog);
         for (String content : contentList) {
             // 2. 使用嵌入模型生成向量
-//            List<Double> embedding = embeddingClient.embed(content);
             List<Double> embedding = embeddingClient.embed(content);
 
             // 3. 构造 Document，附带元数据
