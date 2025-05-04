@@ -16,12 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-
 @Controller
 public class MyBlogController {
 
-    //public static String theme = "default";
-    //public static String theme = "yummy-jekyll";
+    //    public static String theme = "default";
+//    public static String theme = "yummy-jekyll";
     public static String theme = "amaze";
     @Resource
     private BlogService blogService;

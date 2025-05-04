@@ -7,7 +7,6 @@ package com.site.blog.my.core.config;
  * @author 程浩然
  * @since 2025-01-15
  */
-
 public class Constants {
     /**
      * 上传文件的默认url前缀，根据部署设置自行修改
