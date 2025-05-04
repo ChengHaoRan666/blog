@@ -7,7 +7,7 @@
     <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
     <meta content="_top" http-equiv="Window-target"/>
-    <link rel="stylesheet" th:href="@{/blog/amaze/css/base.css}">
+    <link rel="stylesheet" th:href="@{/blog/dist/css/base.css}">
 </head>
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top" th:fragment="nav-fragment">
     <div class="container-fluid">
@@ -31,7 +31,7 @@
                     <a th:href="@{/link}">友链</a>
                 </li>
                 <li>
-                    <a th:href="@{/about}">关于</a>
+                    <a th:href="@{/about}">AI助手</a>
                 </li>
                 <li>
                     <a href="https://github.com/ChengHaoRan666">GitHub</a>
@@ -48,7 +48,7 @@
                         <a th:href="@{/link}">友链</a>
                     </li>
                     <li>
-                        <a th:href="@{/about}">关于</a>
+                        <a th:href="@{/about}">AI助手</a>
                     </li>
                     <li>
                         <a href="https://github.com/ChengHaoRan666">GitHub</a>
@@ -57,7 +57,7 @@
             </div>
         </div>
         <!-- /.navbar-collapse -->
-        <script th:src="@{/blog/amaze/js/jquery.min.js}"></script>
+        <script th:src="@{/blog/dist/js/jquery.min.js}"></script>
         <script>
             $(function () {
                 $('.navbar-toggle').click(function () {

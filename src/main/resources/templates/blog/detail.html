@@ -7,7 +7,7 @@
     <meta name="description" th:content="${configurations.get('websiteDescription')}">
     <meta content="width=device-width" name="viewport">
     <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>
-    <link rel="stylesheet" th:href="@{/blog/amaze/css/base.css}">
+    <link rel="stylesheet" th:href="@{/blog/dist/css/base.css}">
     <!-- highlight -->
     <link rel="stylesheet" th:href="@{/blog/plugins/highlight/styles/paraiso-light.css}">
     <style>
@@ -77,7 +77,7 @@
             <th:block th:each="comment,iterStat : ${commentPageResult.list}">
                 <article class="comment">
                     <header class="clearfix">
-                        <img class="avatar" th:src="@{/blog/default/img/avatar.png}">
+                        <img class="avatar" th:src="@{/blog/dist/img/avatar.png}">
                         <div class="meta">
                             <h3 th:text="${comment.commentator}"></h3>
                             <span class="date">
@@ -193,7 +193,7 @@
 </div>
 <footer th:replace="~{blog/footer::footer-fragment}"></footer>
 </body>
-<script th:src="@{/blog/amaze/js/jquery.min.js}"></script>
+<script th:src="@{/blog/dist/js/jquery.min.js}"></script>
 <script th:src="@{/blog/plugins/highlight/highlight.pack.js}"></script>
 <script th:src="@{/blog/plugins/comment/valid.js}"></script>
 <script th:src="@{/blog/plugins/comment/comment.js}"></script>
