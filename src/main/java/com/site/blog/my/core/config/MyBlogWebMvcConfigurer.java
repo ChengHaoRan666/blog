@@ -13,7 +13,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author 程浩然
  * @since 2025-01-04
  */
-
 @Configuration
 public class MyBlogWebMvcConfigurer implements WebMvcConfigurer {
 

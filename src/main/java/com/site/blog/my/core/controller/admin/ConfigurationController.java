@@ -10,6 +10,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 
+/**
+ * 配置管理
+ */
 @Controller
 @RequestMapping("/admin")
 public class ConfigurationController {

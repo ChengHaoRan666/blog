@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 
+/**
+ * 友链管理
+ */
 @Controller
 @RequestMapping("/admin")
 public class LinkController {

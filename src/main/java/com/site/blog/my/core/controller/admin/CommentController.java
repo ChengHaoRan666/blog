@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+
+/**
+ * 评论管理
+ */
 @Controller
 @RequestMapping("/admin")
 public class CommentController {

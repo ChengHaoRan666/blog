@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-
+/**
+ * 分类管理
+ */
 @Controller
 @RequestMapping("/admin")
 public class CategoryController {

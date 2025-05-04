@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 
+/**
+ * 标签管理
+ */
 @Controller
 @RequestMapping("/admin")
 public class TagController {

@@ -8,9 +8,9 @@ import com.site.blog.my.core.util.MyBlogUtils;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.Result;
 import com.site.blog.my.core.util.ResultGenerator;
-import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -27,14 +27,16 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Random;
 
-
+/**
+ * 文章管理
+ */
 @Controller
 @RequestMapping("/admin")
 public class BlogController {
 
-    @Resource
+    @Autowired
     private BlogService blogService;
-    @Resource
+    @Autowired
     private CategoryService categoryService;
 
     @GetMapping("/blogs/list")

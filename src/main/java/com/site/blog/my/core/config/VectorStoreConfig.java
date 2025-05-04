@@ -14,7 +14,6 @@ import org.springframework.context.annotation.Configuration;
  * @author 程浩然
  * @since 2025-04-24
  */
-
 @Configuration
 public class VectorStoreConfig {
     /**

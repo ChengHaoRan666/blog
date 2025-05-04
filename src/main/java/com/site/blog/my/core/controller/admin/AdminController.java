@@ -194,7 +194,7 @@ public class AdminController {
     }
 
     /**
-     * 退出登录，清楚Session中的信息
+     * 退出登录，清除Session中的信息
      *
      * @param request req
      * @return 跳转页面
