@@ -33,7 +33,6 @@ import java.util.Random;
 @Controller
 @RequestMapping("/admin")
 public class BlogController {
-
     @Autowired
     private BlogService blogService;
     @Autowired

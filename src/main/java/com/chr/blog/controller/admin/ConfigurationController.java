@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-
 /**
  * 配置管理
  */
@@ -92,6 +91,4 @@ public class ConfigurationController {
         }
         return ResultGenerator.genSuccessResult(updateResult > 0);
     }
-
-
 }

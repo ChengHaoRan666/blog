@@ -19,7 +19,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/admin")
 public class CategoryController {
-
     @Resource
     private CategoryService categoryService;
 
