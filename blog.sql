@@ -7,7 +7,7 @@ create table my_blog_db.tb_admin_user
     nick_name       varchar(50)       not null comment '管理员显示昵称',
     locked          tinyint default 0 null comment '是否锁定 0未锁定 1已锁定无法登陆'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 create table my_blog_db.tb_blog
 (
@@ -27,7 +27,7 @@ create table my_blog_db.tb_blog
     create_time        datetime default CURRENT_TIMESTAMP not null comment '添加时间',
     update_time        datetime default CURRENT_TIMESTAMP null comment '修改时间'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 create table my_blog_db.tb_blog_category
 (
@@ -39,7 +39,7 @@ create table my_blog_db.tb_blog_category
     is_deleted    tinyint  default 0                 not null comment '是否删除 0=否 1=是',
     create_time   datetime default CURRENT_TIMESTAMP not null comment '创建时间'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 create table my_blog_db.tb_blog_comment
 (
@@ -57,7 +57,7 @@ create table my_blog_db.tb_blog_comment
     comment_status      tinyint      default 0                 not null comment '是否审核通过 0-未审核 1-审核通过',
     is_deleted          tinyint      default 0                 null comment '是否删除 0-未删除 1-已删除'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 create table my_blog_db.tb_blog_tag
 (
@@ -67,7 +67,7 @@ create table my_blog_db.tb_blog_tag
     is_deleted  tinyint  default 0                 not null comment '是否删除 0=否 1=是',
     create_time datetime default CURRENT_TIMESTAMP not null comment '创建时间'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 create table my_blog_db.tb_blog_tag_relation
 (
@@ -77,7 +77,7 @@ create table my_blog_db.tb_blog_tag_relation
     tag_id      int                                not null comment '标签id',
     create_time datetime default CURRENT_TIMESTAMP null comment '添加时间'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 create table my_blog_db.tb_config
 (
@@ -87,7 +87,7 @@ create table my_blog_db.tb_config
     create_time  datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time  datetime     default CURRENT_TIMESTAMP not null comment '修改时间'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 create table my_blog_db.tb_link
 (
@@ -101,10 +101,10 @@ create table my_blog_db.tb_link
     is_deleted       tinyint  default 0                 not null comment '是否删除 0-未删除 1-已删除',
     create_time      datetime default CURRENT_TIMESTAMP not null comment '添加时间'
 )
-    charset = utf8mb3;
+    charset = utf8mb4;
 
 INSERT INTO my_blog_db.tb_admin_user (admin_user_id, login_user_name, login_password, nick_name, locked)
-VALUES (1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '橙子', 0);
+VALUES (1, 'admin', '31528198109743225ff9d0cf04d1fdd1', '橙子', 0);
 
 INSERT INTO my_blog_db.tb_config (config_name, config_value, create_time, update_time)
 VALUES ('footerAbout', '仅供分享使用', '2024-12-01 20:33:23', '2024-12-01 20:33:23')
