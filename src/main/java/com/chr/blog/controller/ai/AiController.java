@@ -30,14 +30,17 @@ public class AiController {
      * @param question 问题
      * @return 结果
      */
-    @PostMapping("/ask")
+    @PostMapping(value = "/ask")
     public Result<AnswerVO> askQuestion(@RequestBody String question) {
         Result<AnswerVO> result = new Result<>();
         result.setData(blogQAService.answerQuestion(question));
         return result;
     }
 
-    @GetMapping("/test")
+    /**
+     * 立即执行同步到redis
+     */
+    @GetMapping("/insert")
     public void test() {
         blogTask.blogInsert();
     }

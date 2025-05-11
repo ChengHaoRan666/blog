@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{blog/header::head-fragment}"></head>
+<body id="blog">
+<div th:replace="~{blog/header::nav-fragment}"></div>
+
+<header class="intro-header" th:fragment="header-fragment"
+        th:style="'background-image:url(' + @{/blog/dist/img/header.jpg} + ');'">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>AI 助手</h1>
+                    <span class="subheading">您的智能博客助手</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-lg-8 am-u-sm-12">
+        <div class="ai-container">
+            <h2>智能问答</h2>
+            <div class="ai-input-group">
+                <input class="ai-input" placeholder="请输入您的问题..." type="text">
+                <button class="ai-submit">发送</button>
+            </div>
+
+            <div class="ai-response">
+                <div class="loading" style="display: none;">思考中...</div>
+                <div class="response-content"></div>
+            </div>
+
+            <!-- 历史记录展示 -->
+            <div class="ai-history">
+                <h3>历史记录</h3>
+                <ul class="history-list"></ul>
+            </div>
+        </div>
+    </div>
+    <div th:replace="~{blog/side::side-fragment}"></div>
+</div>
+
+<footer th:replace="~{blog/footer::footer-fragment}"></footer>
+
+<!-- 引入依赖 -->
+<script th:src="@{/blog/dist/js/jquery.min.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- 样式可内联或放入外部 -->
+<style>
+    .ai-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .ai-input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .ai-input {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .ai-submit {
+        padding: 10px 20px;
+    }
+
+    .response-content {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #f9f9f9;
+        border-radius: 4px;
+    }
+
+    .ai-history {
+        margin-top: 2rem;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        padding: 1rem;
+    }
+
+    .history-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .history-list li {
+        margin-bottom: 1rem;
+        border-bottom: 1px dashed #ddd;
+        padding-bottom: 0.5rem;
+    }
+
+    .history-question {
+        font-weight: bold;
+    }
+
+    .history-answer {
+        color: #333;
+    }
+</style>
+
+<script>
+    function saveToHistory(question, answer) {
+        const history = JSON.parse(localStorage.getItem('aiHistory') || '[]');
+        history.unshift({question, answer});
+        localStorage.setItem('aiHistory', JSON.stringify(history));
+        renderHistory();
+    }
+
+    function renderHistory() {
+        const history = JSON.parse(localStorage.getItem('aiHistory') || '[]');
+        const $list = $('.history-list');
+        $list.empty();
+        history.forEach(entry => {
+            const answerHtml = marked.parse(entry.answer);
+            const item = `
+                <li>
+                    <div class="history-question">Q: ${entry.question}</div>
+                    <div class="history-answer">${answerHtml}</div>
+                </li>
+            `;
+            $list.append(item);
+        });
+    }
+
+    $(document).ready(function () {
+        renderHistory();
+
+        $('.ai-submit').click(function () {
+            const input = $('.ai-input').val().trim();
+            if (input === '') return;
+
+            $('.loading').show();
+            $('.response-content').empty();
+
+            $.ajax({
+                url: '/ai/ask',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(input),
+
+                success: function (res) {
+                    $('.loading').hide();
+                    if (res.resultCode === 0 && res.data && res.data.answer) {
+                        const markdownAnswer = res.data.answer;
+                        const htmlAnswer = marked.parse(markdownAnswer);
+                        $('.response-content').html(htmlAnswer);
+                        saveToHistory(input, markdownAnswer);
+                    } else {
+                        $('.response-content').html('<p>AI助手暂时无法回答您的问题，请稍后再试。</p>');
+                    }
+                },
+                error: function () {
+                    $('.loading').hide();
+                    $('.response-content').html('<p>请求失败，请检查网络或稍后再试。</p>');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

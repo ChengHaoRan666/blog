@@ -259,6 +259,13 @@ public class MyBlogController {
         return ResultGenerator.genSuccessResult(commentService.addComment(comment));
     }
 
+    @GetMapping("/about")
+    public String AI(HttpServletRequest request) {
+        request.setAttribute("pageName", "AI");
+        request.setAttribute("configurations", configService.getAllConfigs());
+        return "blog/ai";
+    }
+
     //TODO：修改关于页面为ai助手页面
 
     /**
