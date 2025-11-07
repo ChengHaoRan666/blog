@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * AI控制层
  *
  * @author 程浩然
- * @since 2025-04-13
+ * @since 2025-01-13
  */
 @RestController
 @RequestMapping("/ai")
